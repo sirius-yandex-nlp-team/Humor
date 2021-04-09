@@ -1,0 +1,20 @@
+
+data:
+  task_1:
+    train: 'data/task-1/train.csv'
+    dev: 'data/task-1/dev.csv'
+    test: 'data/task-1/dev.csv'
+    lm: 'data/task-1/shortjokes2.csv'
+  task_2:
+    train: 'data/task-2/train.csv'
+    dev: 'data/task-2/dev.csv'
+    test: 'data/task-2/dev.csv'
+    lm: 'data/task-2/shortjokes2.csv'
+  train_bathch_size: 64
+  test_bathch_size: 64
+model:
+  word2vec: false
+  type: 'bert'
+optimizer:
+  learning_rate: 1e-3
+  epochs: 5 
