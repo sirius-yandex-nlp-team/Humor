@@ -3,8 +3,8 @@ from humor.utils.get_paths import get_data_paths
 from humor.models.FunBERT.model import FunBERT
 
 
-def train():
-    data_paths = get_data_paths('task_1')
+def train(task, model_type):
+    data_paths = get_data_paths(task)
 
     model = FunBERT(data_paths['train'], 
                     data_paths['dev'],
@@ -17,7 +17,7 @@ def train():
                     params.optimizer.epochs,
                     None,
                     'model_2.pth',
-                    params.model.type)
+                    model_type)
     #obj.bert_model = obj.bert_model.roberta
     #obj.bert_model.load_state_dict(torch.load('lm_joke_bert.pth'))
     model.train()

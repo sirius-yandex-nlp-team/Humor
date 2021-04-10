@@ -146,10 +146,10 @@ class FunBERT(nn.Module):
         final_scores = []
         input = input[0]
         attn_mask0 = (input[0]!=self.tokenizer.pad_token_id).long()
-        output_per_seq1,_,attention_layer_inps = self.bert_model(input[0].long(), attention_mask = attn_mask0).values()
+        output_per_seq1,_,attention_layer_inps = self.bert_model(input[0].long(), attention_mask = attn_mask0)
         output_per_seq1 = torch.cat((output_per_seq1, attention_layer_inps[11]), 2)
         attn_mask1 = (input[1]!=self.tokenizer.pad_token_id).long()
-        output_per_seq2,_,attention_layer_inps = self.bert_model(input[1].long(),attention_mask = attn_mask1).values()
+        output_per_seq2,_,attention_layer_inps = self.bert_model(input[1].long(),attention_mask = attn_mask1)
         output_per_seq2 = torch.cat((output_per_seq2, attention_layer_inps[11]), 2)
         '''
         Obtain the vectors that represent the entities and average them followed by a Tanh and a linear layer.
